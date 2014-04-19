@@ -1,0 +1,5 @@
+<VirtualHost *:80>
+ServerAdmin ole_mathias@msbone.net
+DocumentRoot /weathermap
+ServerName stats.webikt.no
+</VirtualHost>

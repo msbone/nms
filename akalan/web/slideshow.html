@@ -1,0 +1,30 @@
+<meta http-equiv="refresh" content="120">
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+ var pages = new Array();
+	pages[0] = "stats.html";
+	pages[1] = "weathermap.html";
+
+
+$(document).ready(function(){
+
+$("#content").load(pages[0]);
+
+var i = 0;
+setInterval(function(){
+
+$("#content").load(pages[i]);
+i++;
+
+if(i == pages.length)
+{
+i=0;
+}
+
+},20000);
+});
+</script>
+
+<div id="content">Laster...</div>
