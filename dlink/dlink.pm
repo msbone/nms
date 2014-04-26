@@ -41,6 +41,12 @@ my %args = @_;
 $t->cmd("save");
 }
 
+sub cmd {
+my $self = shift;
+my %args = @_;
+$t->cmd($args{cmd});
+}
+
 sub close {
 my $self = shift;
 $t->close;
