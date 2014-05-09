@@ -23,6 +23,27 @@ sub connect {
   return $self; 
 }
 
+sub setup_port {
+my $self = shift;
+my %args = @_;
+#CLEAN THE ARP CACHE
+$session->cmd("clear arp-cache");
+#GO TO CONF MODE FOR THIS PORT
+$session->cmd("conf t");
+$session->cmd("interface gigabit 0/".$args{port});
+$session->cmd("no shutdown");
+#TURN OFF SWITCHPORT
+$session->cmd("no switchport");
+#SET IP
+$session->cmd("ip address 10.90.90.1 255.255.255.0");
+$session->cmd("desc CONFIG");
+#GO BACK TO START
+$session->cmd("exit");
+$session->cmd("exit");
+
+print $name.": port ". $args{port}. " set to CONFIG MODE \n";
+}
+
 sub setvlan {
 my $self = shift;
 my %args = @_;
