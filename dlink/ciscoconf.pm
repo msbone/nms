@@ -48,14 +48,21 @@ sub setvlan {
 my $self = shift;
 my %args = @_;
 #Set a port at a vlan
+#CLEAN THE ARP CACHE
 $session->cmd("clear arp-cache");
+#GO TO CONF MODE FOR THIS PORT
 $session->cmd("conf t");
 $session->cmd("interface gigabit 0/".$args{port});
+#TURN ON SWITCHPORT AND MAKE MODE ACCESS
 $session->cmd("switchport");
 $session->cmd("switchport mode access");
+#SET PORT TO VLAN
 $session->cmd("switchport access vlan ".$args{vlan});
+#SET DESC AT PORT
 $session->cmd("desc ".$args{desc});
+#MAKE SURE THE PORT IS UP
 $session->cmd("no shutdown");
+#GO BACK TO START
 $session->cmd("exit");
 $session->cmd("exit");
 print $name.": port ". $args{port}. " set to vlan ".$args{vlan}."\n";
