@@ -1,4 +1,1 @@
-nms
-===
-
-Some of the scripts and config i use to make magic
+Verktøy brukes til å automagisk lage config og annet stash til datapartyes

@@ -1,7 +1,7 @@
 #! /usr/bin/perl
 package nms::config;
 
-our $eventname = "vl14";
+our $eventname = "vl15";
 our $domain = "vatnelan.net";
 
 our $pri_hostname = "bird";
